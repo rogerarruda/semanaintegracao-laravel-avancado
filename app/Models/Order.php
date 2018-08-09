@@ -12,18 +12,18 @@ class Order extends Model
         'total',
         'status',
         'user_id',
-        'order_id',
+        'product_id',
     ];
 
     public function setPriceUnityAttribute($value)
     {
-        $this->attribute['price_unity'] = $value;
-        $this->attribute['total'] = $this->attribute['quantity'] * $value;
+        $this->attributes['price_unity'] = $value;
+        $this->attributes['total'] = $this->attributes['quantity'] * $value;
     }
 
     public function getPriceUnityBRAttribute()
     {
-        return 'R$ '.number_format($this->total, 2, ',', '.');
+        return 'R$ '.number_format($this->price_unity, 2, ',', '.');
     }
 
     public function getTotalBRAttribute()
