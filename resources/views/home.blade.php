@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <a href="{{route('user.products.index')}}" class="btn btn-info">Produtos</a>
+                    <a href="{{route('user.orders.index')}}" class="btn btn-primary">Pedidos</a>
                 </div>
             </div>
         </div>

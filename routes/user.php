@@ -17,4 +17,12 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('index');
+Route::group(['as' => 'user.', 'namespace' => 'User'], function() {
+    Route::get('/', 'HomeController@index')->name('index');
+
+    Route::get('/products',             'ProductsController@index')->name('products.index');
+    Route::post('/products/buy/{id}',    'ProductsController@buy')->name('products.buy');
+
+    Route::get('/orders',               'OrdersController@index')->name('orders.index');
+    Route::get('/orders/cancel/{id}',   'OrdersController@cancel')->name('orders.cancel');
+});
