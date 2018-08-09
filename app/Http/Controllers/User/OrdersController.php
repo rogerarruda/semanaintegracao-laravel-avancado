@@ -15,4 +15,14 @@ class OrdersController extends Controller
 
         return view('user.orders.index', compact('orders'));
     }
+
+    public function cancel($id)
+    {
+        $order = Order::find($id);
+
+        $order->status = 'canceled';
+        $order->save();
+
+        return redirect()->route('user.orders.index')->with('success', 'Pedido cancelado com sucesso!');
+    }
 }

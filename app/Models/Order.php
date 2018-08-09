@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
+use App\Events\OrderCreatedEvent;
+
 class Order extends Model
 {
     protected $fillable = [
@@ -15,6 +17,10 @@ class Order extends Model
         'status_date',
         'user_id',
         'product_id',
+    ];
+
+    protected $dispatchesEvents = [
+        'created' => OrderCreatedEvent::class,
     ];
 
     public function setPriceUnityAttribute($value)
