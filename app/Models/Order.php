@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Order extends Model
 {
@@ -30,6 +31,11 @@ class Order extends Model
     public function getTotalBRAttribute()
     {
         return 'R$ '.number_format($this->total, 2, ',', '.');
+    }
+
+    public function getStatusDateBRAttribute()
+    {
+        return Carbon::createFromFormat('Y-m-d H:i', $this->status_date)->format('d/m/Y H:i');
     }
 
 
