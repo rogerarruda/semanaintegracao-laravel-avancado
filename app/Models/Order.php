@@ -11,6 +11,7 @@ class Order extends Model
         'price_unity',
         'total',
         'status',
+        'status_date',
         'user_id',
         'product_id',
     ];

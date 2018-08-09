@@ -19,6 +19,7 @@
                                 <th scope="col">Quantidade</th>
                                 <th scope="col">Preço</th>
                                 <th scope="col">Total</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Ações</th>
                             </tr>
                         </thead>
@@ -30,6 +31,7 @@
                                     <td>{{$order->quantity}}</td>
                                     <td>{{$order->price_unity_br}}</td>
                                     <td>{{$order->total_br}}</td>
+                                    <td>{{$order->status}}</td>
                                     <td>
                                         <a href="{{route('user.orders.cancel', $order->id)}}" class="btn btn-sm btn-danger">Cancelar</a>
                                     </td>

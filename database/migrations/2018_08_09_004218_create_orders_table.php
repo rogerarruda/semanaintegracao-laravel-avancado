@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->double('price_unity',9,2);
             $table->double('total',9,2);
             $table->string('status')->default('unpaid');
+            $table->dateTime('status_date')->nullable();
             $table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('product_id')->unsigned();
