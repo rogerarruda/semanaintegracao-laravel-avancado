@@ -34,7 +34,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        @auth ('user')
+                            <li class="nav-item">
+                                <a href="{{ route('user.products.index') }}" class="nav-link">Comprar produtos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('user.orders.index') }}" class="nav-link">Meus pedidos</a>
+                            </li>                            
+                        @endauth
+                        @auth ('admin')
+                            <li class="nav-item">
+                                <a href="{{ route('admin.products.index') }}" class="nav-link">Administrar produtos</a>
+                            </li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->

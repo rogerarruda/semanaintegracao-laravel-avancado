@@ -17,7 +17,7 @@
 
 Auth::routes();
 
-Route::group(['as' => 'user.', 'namespace' => 'User'], function() {
+Route::group(['as' => 'user.', 'namespace' => 'User', 'middleware' => 'auth:user'], function() {
     Route::get('/', 'HomeController@index')->name('index');
 
     Route::get('/products',             'ProductsController@index')->name('products.index');
